@@ -1,0 +1,24 @@
+{
+  "name": "diff-for-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/add-demo-npm.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pitis/diff-for-html.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pitis/diff-for-html/issues"
+  },
+  "homepage": "https://github.com/pitis/diff-for-html#readme",
+  "dependencies": {
+    "typescript": "^4.1.3"
+  }
+}
