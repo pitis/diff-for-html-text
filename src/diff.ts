@@ -1,7 +1,7 @@
 // import DiffMatchPatch from 'diff-match-patch'
 import { diff_match_patch } from 'diff-match-patch'
 
-const startingTags = ['☀', '⚠', '☆', '⛬', '★', '☁', '☎']
+const startingTags = ['{{1}}', '{{2}}', '☆', '⛬', '★', '☁', '☎']
 
 // const endingHtmlTags = ['<a>', '<abbr>', '<address>', '<area>', '</article>', '</aside>', '</b>', '</bdi>', '</bdo>', '</blockquote>', '</body>', '</button>', '</canvas>', '</caption>', '</cite>', '</code>', '</col>', '</colgroup>', '</data>', '</datalist>', '</dd>', '</del>', '</details>', '</dfn>', '</dialog>', '</div>', '</dl>', '</dt>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>', '</>',]
 
@@ -24,9 +24,9 @@ const replaceFromTags = (text: string): string => {
     .replace(/<br>/gi, '♜')
     .replace(/<em>/gi, '☎')
     .replace(/<\/em>/gi, '☏')
-    .replace(/<p>/gi, '☀')
+    .replace(/<p>/gi, '{{1}}')
     .replace(/<\/p>/gi, '✒')
-    .replace(/<h2>/gi, '⚠')
+    .replace(/<h2>/gi, '{{2}}')
     .replace(/<\/h2>/gi, '❤')
     .replace(/<h3>/gi, '☆')
     .replace(/<\/h3>/gi, '⚑')
@@ -44,9 +44,9 @@ export const replaceToTags = (text: string): string => {
     .replace(/♜/gi, '<br>')
     .replace(/☎/gi, '<em>')
     .replace(/☏/gi, '</em>')
-    .replace(/☀/gi, '<p>')
+    .replace(/{{1}}/gi, '<p>')
     .replace(/✒/gi, '</p>')
-    .replace(/⚠/gi, '<h2>')
+    .replace(/{{2}}/gi, '<h2>')
     .replace(/❤/gi, '</h2>')
     .replace(/☆/gi, '<h3>')
     .replace(/⚑/gi, '</h3>')
@@ -64,9 +64,9 @@ const replaceWithVersace = (text: string) => {
     .replace(/♜/gi, '<br>')
     .replace(/☎/gi, '☎<span class="versace">')
     .replace(/☏/gi, '</span>☏')
-    .replace(/☀/gi, '☀<span class="versace">')
+    .replace(/{\{1}}/gi, '{{1}}<span class="versace">')
     .replace(/✒/gi, '</span>✒')
-    .replace(/⚠/gi, '⚠<span class="versace">')
+    .replace(/{\{2}}/gi, '{{2}}<span class="versace">')
     .replace(/❤/gi, '</span>❤')
     .replace(/☆/gi, '☆<span class="versace">')
     .replace(/⚑/gi, '</span>⚑')
@@ -111,8 +111,8 @@ export const diff_html = (previous: string, currentOne: string) => {
     if (part[0] !== 0) part[1] = replaceWithVersace(part[1])
     if (part[0] === 1 && shallowCopy === part[1])
       part[1] = "<span class='versace'>" + part[1] + '</span>'
-    if (part[0] === -1 && shallowCopy === part[1])
-      part[1] = "<span class='blood'>" + part[1] + '</span>'
+    // if (part[0] === -1 && shallowCopy === part[1])
+    //   part[1] = "<span class='blood'>" + part[1] + '</span>'
 
     // console.log('before', part[1])
     part[1] = replaceToTags(part[1])
@@ -124,3 +124,34 @@ export const diff_html = (previous: string, currentOne: string) => {
 
   return layerText
 }
+
+let first = `<p>On its website, cPanel boasts that its software is currently used by hundreds of web hosting companies to manage more than 70 million domains across the world. text that is added on the first layer</p>
+<p>
+    But in a&nbsp;<a href="https://www.digitaldefense.com/news/zero-day-cpanel-and-webhost-manager/" rel="noopener noreferrer" target="_blank">press release</a>&nbsp;today, Digital Defense says that the 2FA implementation on older cPanel
+    &amp; WebHost Manager (WHM) software was vulnerable to brute-force attacks that allowed threat actors to guess URL parameters and bypass 2FA — if 2FA was enabled for an account.
+</p>
+<p>While brute-forcing attacks, in general, usually take hours or days to execute, in this particular case, the attack required only a few minutes.</p>
+<p>
+    While this might make some website owners think the bug is not important, it's actually the opposite since 2FA solutions were invented in the first place to protect against the use of phished credentials, and, as a result, any 2FA
+    bypass like this bug needs to be treated with the utmost urgency and attention.
+</p>
+`
+
+let second = `<p>On its website, cPanel boasts that its software is currently used by hundreds of web hosting companies to manage more than 70 million domains across the world. text that is added on the first layer</p>
+<p>
+    But in a&nbsp;<a href="https://www.digitaldefense.com/news/zero-day-cpanel-and-webhost-manager/" rel="noopener noreferrer" target="_blank">press release</a>&nbsp;today, Digital Defense says that the 2FA implementation on older cPanel
+    &amp; WebHost Manager (WHM) software was vulnerable to brute-force attacks that allowed threat actors to guess URL parameters and bypass 2FA — if 2FA was enabled for an account.
+</p>
+<p>While brute-forcing attacks, in general, usually take hours or days to execute, in this particular case, the attack required only a few minutes.</p>
+<p>Exploiting this bug also requires that attackers have valid credentials for a targeted account, but these can be obtained from phishing the website owner.</p>
+<p>
+    While this might make some website owners think the bug is not important, it's actually the opposite since 2FA solutions were invented in the first place to protect against the use of phished credentials, and, as a result, any 2FA
+    bypass like this bug needs to be treated with the utmost urgency and attention.
+</p>
+<p>
+    The good news is that Digital Defense has privately reported the bug, tracked as&nbsp;<a href="https://news.cpanel.com/cpanel-tsr-2020-0007-full-disclosure/" rel="noopener noreferrer" target="_blank">SEC-575</a>, to the cPanel team,
+    which has already released&nbsp;<a href="https://news.cpanel.com/cpanel-tsr-2020-0007-announcement/" rel="noopener noreferrer" target="_blank">patches</a>&nbsp;last week.
+</p>
+`
+
+console.log(diff_html(first, second))

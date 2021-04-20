@@ -1,3 +1,1 @@
-import { diff_html } from './diff'
-
-export { diff_html }
+export { diff_html } from './diff'
