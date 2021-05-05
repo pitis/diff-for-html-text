@@ -65,8 +65,10 @@ If you wanna propose bugfixes or new features, please go to the [Issues](https:/
 
 ### To do List
 
+- [ ] Actually separate blocks correctly on a handful of elements
 - [ ] Add separate option for adding colors
 - [ ] Improve array of html blocks
+- [ ] Work with all html elements
 - [ ] Add Unit Testing (probably jest)
 - [ ] Add Integration Testing
 - [ ] Add Github Actions
