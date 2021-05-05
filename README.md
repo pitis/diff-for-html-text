@@ -62,3 +62,11 @@ If you wanna propose bugfixes or new features, please go to the [Issues](https:/
 ### License
 
 `diff-for-html` is [MIT licensed](./LICENSE).
+
+### To do List
+
+- [ ] Add separate option for adding colors
+- [ ] Improve array of html blocks
+- [ ] Add Unit Testing (probably jest)
+- [ ] Add Integration Testing
+- [ ] Add Github Actions
