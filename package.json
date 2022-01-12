@@ -12,15 +12,20 @@
     "url": "git+https://github.com/pitis/diff-for-html.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pitis Radu",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pitis/diff-for-html/issues"
   },
   "homepage": "https://github.com/pitis/diff-for-html#readme",
   "dependencies": {
-    "@types/diff-match-patch": "^1.0.32",
     "diff-match-patch": "^1.0.5",
-    "typescript": "^4.1.3"
+    "jsdom": "^19.0.0",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/diff-match-patch": "^1.0.32",
+    "@types/jsdom": "^16.2.14",
+    "ts-node": "^10.4.0"
   }
 }
