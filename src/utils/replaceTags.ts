@@ -30,7 +30,7 @@ export function replaceTags(html: string, tagTable: ITagTable[]) {
     }
 
     if (htmlText.includes(elem.outerHTML)) {
-      let idx = exists
+      const idx = exists
         ? tagTable.find(
             (tag) => `<${elem.tagName.toLowerCase()}>` === tag.htmlElement
           )?.id
@@ -44,7 +44,7 @@ export function replaceTags(html: string, tagTable: ITagTable[]) {
     }
 
     if (!htmlText.includes(elem.outerHTML)) {
-      let idx = exists
+      const idx = exists
         ? tagTable.find(
             (tag) => `<${elem.tagName.toLowerCase()}>` === tag.htmlElement
           )?.id
