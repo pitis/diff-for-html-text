@@ -13,12 +13,15 @@ export const diff_html = (
 
   let tagTable: ITagTable[] = []
 
-  const dmp = new DiffMatchPatch()
-
   let previousEdited = replaceTags(previous, tagTable)
   let nextEdited = replaceTags(next, tagTable)
 
+  console.log(previous)
+
+  const dmp = new DiffMatchPatch()
   const diff = dmp.diff_main(previousEdited, nextEdited)
+
+  console.log(previousEdited)
 
   diff.forEach((elem, index) => {
     // correction for missing parantheses
@@ -33,13 +36,11 @@ export const diff_html = (
     // transform back to tags
     tagTable.forEach((tag) => {
       if (elem[1].includes(`{{${tag.id}}}`)) {
-        // TODO: needs replaceAll
-        elem[1] = elem[1].replace(`{{${tag.id}}}`, tag.htmlElement)
+        elem[1] = elem[1].replaceAll(`{{${tag.id}}}`, tag.htmlElement)
       }
 
       if (elem[1].includes(`{{/${tag.id}}}`)) {
-        // TODO: needs replaceAll
-        elem[1] = elem[1].replace(
+        elem[1] = elem[1].replaceAll(
           `{{/${tag.id}}}`,
           `</${tag.htmlElement.slice(1, -1)}>`
         )
