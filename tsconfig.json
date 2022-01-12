@@ -1,10 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "strict": true,
+    "sourceMap": true,
+    "module": "es2015",
+    "target": "es2021",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "skipLibCheck": true,
     "declaration": true,
-    "outDir": "./dist"
+    "declarationMap": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "exclude": ["tests", "dist", "node_modules", "altceva.ts"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
