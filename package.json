@@ -4,10 +4,8 @@
   "description": "JavaScript library for comparing two blocks of HTML as plain text and efficiently return a list of differences",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "type": "module",
   "scripts": {
-    "build": "rm -rf dist && rollup -c && tsc --emitDeclarationOnly",
+    "build": "rollup -c",
     "prepublish:public": "npm run build",
     "publish:public": "npm publish --access public"
   },
