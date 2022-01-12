@@ -8,17 +8,17 @@ Diff for HTML is a JavaScript library for comparing two blocks of HTML as plain 
 ## Installation
 
 Go to the root of your project and run:
-`npm i diff-for-html`
+`npm i diff-for-html-text`
 
 Or if you use yarn:
-`yarn add diff-for-html`
+`yarn add diff-for-html-text`
 
 ## Examples
 
 I'll try to update here more examples. Here is the first one to get you started:
 
 ```javascript
-import { diff_html } from 'diff-for-html'
+import { diff_html } from 'diff-for-html-text'
 
 const html1 = '<p>I love this module</p>'
 const html2 = "<p>I love this module, it's awesome</p>"
@@ -34,7 +34,6 @@ Expected output:
   [ 1, ", it's awesome" ],
   [ 0, '</p>' ]
 ]
-<p>I love this module<span class='new-text'>, it's awesome</span></p>
 ```
 
 ## Contributing
@@ -57,18 +56,16 @@ Examples of unacceptable behavior by participants include:
 
 ### Contributing Guide
 
-If you wanna propose bugfixes or new features, please go to the [Issues](https://github.com/pitis/diff-for-html/issues) section.
+If you wanna propose bugfixes or new features, please go to the [Issues](https://github.com/pitis/diff-for-html-text/issues) section.
 
 ### License
 
-`diff-for-html` is [MIT licensed](./LICENSE).
+`diff-for-html-text` is [MIT licensed](./LICENSE).
 
 ### To do List
 
-- [ ] Actually separate blocks correctly on a handful of elements
-- [ ] Add separate option for adding colors
-- [ ] Improve array of html blocks
-- [ ] Work with all html elements
+- [x] Actually separate blocks correctly on a handful of elements
+- [x] Improve array of html blocks
+- [x] Work with all html elements
 - [ ] Add Unit Testing (probably jest)
-- [ ] Add Integration Testing
 - [ ] Add Github Actions

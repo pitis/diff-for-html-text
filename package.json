@@ -1,15 +1,16 @@
 {
   "name": "diff-for-html-text",
   "version": "0.0.1",
-  "description": "",
+  "description": "JavaScript library for comparing two blocks of HTML as plain text and efficiently return a list of differences",
   "main": "./dist/add-demo-npm.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pitis/diff-for-html.git"
+    "url": "git+https://github.com/pitis/diff-for-html-text.git"
   },
   "keywords": [
     "diff",
