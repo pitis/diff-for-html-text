@@ -28,8 +28,10 @@ export const diff_html = (previous: string, next: string): string | void => {
     }
 
     // transform back to tags
-    console.log(elem)
+    tagTable.forEach((tag) => {})
   })
+
+  console.log(tagTable)
 
   // console.log(diff.map((elem) => (elem[0] > -1 ? elem[1] : '')).join(''))
   // console.log(diff)
