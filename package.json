@@ -2,12 +2,18 @@
   "name": "diff-for-html-text",
   "version": "0.0.1",
   "description": "JavaScript library for comparing two blocks of HTML as plain text and efficiently return a list of differences",
-  "main": "./dist/add-demo-npm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && rollup -c && tsc --emitDeclarationOnly",
+    "prepublish:public": "npm run build",
+    "publish:public": "npm publish --access public"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pitis/diff-for-html-text.git"
@@ -25,12 +31,19 @@
   "homepage": "https://github.com/pitis/diff-for-html-text#readme",
   "dependencies": {
     "diff-match-patch": "^1.0.5",
-    "jsdom": "^19.0.0",
-    "typescript": "^4.5.4"
+    "jsdom": "^19.0.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.8",
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@types/diff-match-patch": "^1.0.32",
     "@types/jsdom": "^16.2.14",
-    "ts-node": "^10.4.0"
+    "rollup": "^2.63.0",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
   }
 }
