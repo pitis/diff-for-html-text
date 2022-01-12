@@ -11,10 +11,10 @@ export const diff_html = (
     return
   }
 
-  let tagTable: ITagTable[] = []
+  const tagTable: ITagTable[] = []
 
-  let previousEdited = replaceTags(previous, tagTable)
-  let nextEdited = replaceTags(next, tagTable)
+  const previousEdited = replaceTags(previous, tagTable)
+  const nextEdited = replaceTags(next, tagTable)
 
   const dmp = new DiffMatchPatch()
   const diff = dmp.diff_main(previousEdited, nextEdited)

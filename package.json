@@ -7,7 +7,13 @@
   "scripts": {
     "build": "rollup -c",
     "prepublish:public": "npm run build",
-    "publish:public": "npm publish --access public"
+    "publish:public": "npm publish --access public",
+    "format": "prettier --write .",
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:es": "eslint . --ext ts --ext tsx --ext js",
+    "lint:ts": "tsc --noemit",
+    "test:unit": "return true",
+    "prepare": "husky install"
   },
   "files": [
     "dist"
@@ -42,6 +48,7 @@
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
     "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
     "prettier": "^2.5.1",
     "rollup": "^2.63.0",
     "ts-node": "^10.4.0",
