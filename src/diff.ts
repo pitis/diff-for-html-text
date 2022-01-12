@@ -15,10 +15,22 @@ export const diff_html = (previous: string, next: string): string | void => {
   let previousEdited = replaceTags(previous, tagTable)
   let nextEdited = replaceTags(next, tagTable)
 
-  console.log(previousEdited, tagTable)
-  console.log(nextEdited)
+  const diff = dmp.diff_main(previousEdited, nextEdited)
 
-  // const diff = dmp.diff_main(previousEdited.htmlText, nextEdited.htmlText)
+  diff.forEach((elem, index) => {
+    // correction for missing parantheses
+    if (
+      index < diff.length - 1 &&
+      diff[index + 1][1].substring(0, 4) === '}}{{'
+    ) {
+      diff[index][1] += '}}'
+      diff[index + 1][1] = diff[index + 1][1].slice(2)
+    }
 
+    // transform back to tags
+    console.log(elem)
+  })
+
+  // console.log(diff.map((elem) => (elem[0] > -1 ? elem[1] : '')).join(''))
   // console.log(diff)
 }

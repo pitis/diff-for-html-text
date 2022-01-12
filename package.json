@@ -1,5 +1,5 @@
 {
-  "name": "diff-for-html",
+  "name": "diff-for-html-text",
   "version": "0.0.1",
   "description": "",
   "main": "./dist/add-demo-npm.js",
@@ -11,13 +11,17 @@
     "type": "git",
     "url": "git+https://github.com/pitis/diff-for-html.git"
   },
-  "keywords": [],
+  "keywords": [
+    "diff",
+    "html",
+    "text"
+  ],
   "author": "Pitis Radu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pitis/diff-for-html/issues"
+    "url": "https://github.com/pitis/diff-for-html-text/issues"
   },
-  "homepage": "https://github.com/pitis/diff-for-html#readme",
+  "homepage": "https://github.com/pitis/diff-for-html-text#readme",
   "dependencies": {
     "diff-match-patch": "^1.0.5",
     "jsdom": "^19.0.0",
